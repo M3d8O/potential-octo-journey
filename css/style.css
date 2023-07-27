@@ -1,0 +1,252 @@
+:root {
+    --fuenteHeading: "PT Sanz", sans-serif; 
+    --fuenteParrafos: "Open Sans", sans-serif;
+
+    --primario: #784D3C; 
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+
+}
+
+/**a html debe ir en todos los proyectos**/
+html {
+    box-sizing: border-box; /**elemento padre**/
+    font-size: 62.5%; /**para que 10px sea = a 1rem**/
+
+}
+*, *:before, *:after {
+    box-sizing: inherit; /*elemento hijo*/
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2; /*interlineado*/
+}
+
+/**GLOBALES*:  es lo q se va a usar mas de una vez**/
+.contenedor {
+    width: min(90%, 150rem); /**toma el mas chico de los dos depediendo el tamaño de la pantalla**/
+    margin: 0 auto; /**para centrar el contenido**/
+}
+
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+} 
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+  max-width: 100%; /**las imagenes son responsive, fluyen al 100%**/
+}
+/**UTILIDADES**/
+.no-margin {
+    margin: 0; 
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+/**HEADER**/
+.webp .header { /**.webp significa: si soporta el mismo**/
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header { /**.no-webp significa: si no lo soporta**/
+    background-image: url(../img/banner.jpg);
+}
+.header {
+    height: 50rem;
+    background-size: cover; /**para q tome todo el espacio disponible**/
+    background-repeat: no-repeat;
+    background-position: center center; /**para q muestre la parte central de la img cuando achico la pantala, adapta el bg a dif. tamaños**/
+}
+.header__texto {
+text-align: center;
+color: var(--blanco);
+margin-top: 5rem;
+}
+@media (min-width: 768px) {
+    .header__texto {
+     margin-top: 10rem;
+    }
+ }
+ .barra {
+    padding-top: 4rem;
+ }
+@media (min-width: 768px) {
+   .barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+}
+.logo {
+    color: var(--blanco);
+}
+.logo__nombre {
+font-weight: 400; /**o normal**/
+}
+.logo__bold {
+font-weight: 700; /**o bold**/
+}
+@media (min-width: 768px) {
+   .navegacion {
+    display: flex;
+    gap: 2rem; /**separa cada enlace**/
+   }
+}
+.navegacion__enlace {
+    display: block; /**uno debajo del otro**/
+    text-align: center; /**alinea horizontalmente**/
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.entrada {
+border-bottom: 1px solid var(--gris);
+margin-bottom: 2rem;
+}
+.entrada:last-of-type { /**quita la ultima entrada**/
+    border: none;
+    margin-bottom: 0;
+}
+.boton {
+display: block;
+font-family: var(--fuenteHeading);
+color: var(--blanco);
+text-align: center;
+padding: 1rem 3rem;
+font-size: 1.8rem;
+text-transform: uppercase;
+font-weight: 700;
+margin-bottom: 2rem;
+border: none;
+}
+@media (min-width: 768px) {
+   .boton {
+    display: inline-block; /**toma el margin e width q se requiere, INLINE solo no**/
+   }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: var(--negro);
+}
+.boton--secundario {
+    background-color: var(--primario);
+}
+.cursos {
+    list-style: none; /**quita las viñetas**/
+}
+.widget-curso { /**widget xq es una pequeña parte de algo mas grande**/
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+.widget-curso__label {
+font-family: var(--fuenteHeading);
+font-weight: bold;
+}
+.widget-curso__info {
+font-weight: normal;
+}
+.widget-curso__label,
+.widget-curso__info {
+    font-size: 2rem;
+}
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+/**SOBRE NOSOTROS**/
+@media (min-width: 768px) {
+   .sobre-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+   column-gap:2rem;
+}
+}
+/**CURSO**/
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+@media (min-width: 768px) {
+    .curso {
+     display: grid;
+     grid-template-columns: 1fr 2fr;
+     column-gap: 2rem;
+    }
+ }
+.curso:last-of-type {
+border: none;
+}
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+    }
+.curso__info {
+    font-weight: normal;
+    }
+.curso__label,
+.curso__info {
+        font-size: 2rem;
+    }
+
+    /**CONTACTO**/
+    .contacto-bg {
+        background-image: url(../img/contacto.jpg);
+        height: 40rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .formulario {
+        background-color: var(--blanco);
+        margin: -5rem auto 0 auto;
+        width: 95%;
+        padding: 5rem;
+    }
+    .campo {
+        display: flex;
+        margin-bottom: 2rem;
+        gap: 2rem;
+    }
+    .campo__label {
+        flex: 0 0 9rem; /**le da un tamaño y/o width fijo de 9rem**/
+        text-align: right;
+    }
+    .campo__field {
+        flex: 1;
+        border: 1px solid var(--gris);
+    }
+    .campo__field--textarea {
+    height: 20rem;
+    }
